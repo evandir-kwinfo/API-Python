@@ -1,0 +1,80 @@
+<!DOCTYP html>
+<html lang='pt-BR'>
+  <head>
+    <meta charset="utf-8">
+    <title>Lista de Dispositivos</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+      }
+
+      h1 {
+          text-align: center;
+          color: #333;
+      }
+      
+      table {
+          width: 80%;
+          margin: 20px auto;
+          border-collapse: collapse;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+      }
+
+      thead {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+      th, td {
+          padding: 12px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+      }
+
+      th {
+          font-weight: bold;
+      }
+
+      tbody tr:hover {
+          background-color: #f1f1f1;
+      }
+
+      td {
+          color: #333;
+      }
+
+      th {
+          text-transform: uppercase;
+      }
+      
+      .text-center {
+        text-align: center;
+      }
+
+      .text-left {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Dispositivos</h1>
+    <table>
+      <thead>
+        <th class='text-left'>Dispositivo</th>
+        <th class='text-left'>Status Homologacao</th>
+      </thead>
+      <tbody>
+        {% for dispositivo in dispositivos %}
+        <tr>
+          <td class='text-left'>{{ dispositivo.nome }}</td>
+          <td class='text-center'>{{ dispositivo.status }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
