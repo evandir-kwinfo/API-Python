@@ -22,7 +22,6 @@ def homepage():
 
   return render_template("homepage.html")
 
-
 @app.route('/lista_dispositivos_cadastrados')
 def lista_dispositivos_cadastrados():
   # Criar um array combinando os valores do JSON
