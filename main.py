@@ -7,12 +7,12 @@ app = Flask(__name__)
 
 # Ler o JSON de um arquivo externo
 with open('dispositivos.json', 'r') as file:
-  dados = json.load(file)
+  dispositivos = json.load(file)
 
 # Função auxiliar para buscar informações por nome
 def buscar_por_nome(nome):
-  for i in range(len(dados["nome"])):
-    if dados["nome"][str(i)] == nome:
+  for i in range(len(dispositivos["nome"])):
+    if dispositivos["nome"][str(i)] == nome:
       return i  # Retorna o índice onde o nome foi encontrado
   return None
 
@@ -26,9 +26,9 @@ def homepage():
 def lista_dispositivos_cadastrados():
   # Criar um array combinando os valores do JSON
   resultado = [{
-      "nome": dados["nome"][str(i)],
-      "status": dados["status"][str(i)]
-  } for i in range(len(dados["nome"]))]
+      "nome": dispositivos["nome"][str(i)],
+      "status": dispositivos["status"][str(i)]
+  } for i in range(len(dispositivos["nome"]))]
 
   # Retorna o array como JSON
   return render_template('dispositivos.html', dispositivos=resultado)
@@ -41,7 +41,7 @@ def get_dados():
   if nome:
     indice = buscar_por_nome(nome)
     if indice is not None:
-      resultado = {"nome": nome, "status": dados["status"][str(indice)]}
+      resultado = {"nome": nome, "status": dispositivos["status"][str(indice)]}
       return jsonify(resultado)
     else:
       return jsonify({"error": "Nome não encontrado"}), 404
@@ -64,11 +64,11 @@ def update_status():
   indice = buscar_por_nome(nome)
   if indice is not None:
     # Atualizar o status no JSON
-    dados["status"][str(indice)] = int(novo_status)
+    dispositivos["status"][str(indice)] = int(novo_status)
 
     # Salvar as alterações de volta no arquivo JSON
-    with open('dados.json', 'w') as file:
-      json.dump(dados, file, indent=4)
+    with open('dispositivos.json', 'w') as file:
+      json.dump(dispositivos, file, indent=4)
 
     return jsonify(
         {"message": f"Status de '{nome}' atualizado para {novo_status}"}), 200
