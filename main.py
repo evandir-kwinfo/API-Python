@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
 import json
 from flask import Flask, jsonify, request, render_template
 
@@ -7,14 +9,12 @@ app = Flask(__name__)
 with open('dispositivos.json', 'r') as file:
   dados = json.load(file)
 
-
 # Função auxiliar para buscar informações por nome
 def buscar_por_nome(nome):
   for i in range(len(dados["nome"])):
     if dados["nome"][str(i)] == nome:
       return i  # Retorna o índice onde o nome foi encontrado
   return None
-
 
 # construir as funcionalidades
 @app.route('/')
