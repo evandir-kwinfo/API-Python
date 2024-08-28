@@ -93,7 +93,7 @@ def get_data():
         "store": 1,
         "date": datetime.now().strftime('%Y-%m-%d'),  # Data atual
         "time": datetime.now().strftime('%H:%M:%S'),  # Hora atual
-        "cupon": random.randint(1, 100),  # Gera um número aleatório entre 1 e 100
+        "cupon": random.randint(1, 99999),  # Gera um número aleatório entre 1 e 99999
         "sequence": random.randint(1, 10),  # Gera um número aleatório entre 1 e 10
         "action": "create",
         "state": 1,
