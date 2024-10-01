@@ -1,12 +1,22 @@
-{
-    "nome": {
-        "0": "rede",
-        "1": "vero",
-        "2": "pagseguro"
-    },
-    "status": {
-        "0": 1,
-        "1": 0,
-        "2": 0
-    }
-}
+[
+  {
+    "codigo": 1,
+    "nome": "rede",
+    "status": 1
+  },
+  {
+    "codigo": 2,
+    "nome": "vero",
+    "status": 1
+  },
+  {
+    "codigo": 3,
+    "nome": "cielo",
+    "status": 1
+  },
+  {
+    "codigo": 4,
+    "nome": "pagseguro",
+    "status": 1
+  }
+]

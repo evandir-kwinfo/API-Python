@@ -64,14 +64,16 @@
     <h1>Lista de Dispositivos</h1>
     <table>
       <thead>
+        <th class='text-left'>Código</th>
         <th class='text-left'>Dispositivo</th>
         <th class='text-left'>Status Homologacao</th>
       </thead>
       <tbody>
-        {% for dispositivo in dispositivos %}
+        {% for item in data %}
         <tr>
-          <td class='text-left'>{{ dispositivo.nome }}</td>
-          <td class='text-center'>{{ dispositivo.status }}</td>
+          <td class='text-left'>{{ item.codigo }}</td>
+          <td class='text-left'>{{ item.nome }}</td>
+          <td class='text-center'>{{ item.status }}</td>
         </tr>
         {% endfor %}
       </tbody>
